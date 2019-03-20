@@ -1,4 +1,4 @@
-package com.mybenefits.model;
+package com.test.model;
 
 import java.util.List;
 

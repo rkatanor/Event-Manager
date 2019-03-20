@@ -1,4 +1,4 @@
-package com.mybenefits.model;
+package com.test.model;
 
 public class Benefits {
 		private String benefit_name;
@@ -14,6 +14,10 @@ public class Benefits {
 		}
 		public void setBenefit_rate(String benefit_rate) {
 			this.benefit_rate = benefit_rate;
+		}
+		@Override
+		public String toString() {
+			return "Benefits [benefit_name=" + benefit_name + ", benefit_rate=" + benefit_rate + "]";
 		}
 		
 		
