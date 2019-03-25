@@ -54,8 +54,8 @@ public class PersonController {
 	@Value(value = "${transaction.history.event.status.code}")
 	int EVENT_STATUS_CODE;
 	
-	@GetMapping(value = "/reseedperson/{member_oid}")
-	public String syncPerson(@PathVariable("member_oid") int memberoid) {
+	@GetMapping(value = "/reseedmember")
+	public String syncPerson(@PathVariable("whereid") int memberoid) {
 		Person personData = operations.dataSynchronization(memberoid);
 		System.out.println("retrived person data from enrollment DB based on given member oid: " + personData);
 		System.out.println("updating record in Transaction HIstory for DATASYNC event type");
@@ -74,8 +74,8 @@ public class PersonController {
 		return service.getPerson(person_oid);
 	}
 
-	@GetMapping(value = "/createmember/{ssn}")
-	public String addMember(@PathVariable("ssn") String SSN) {	
+	@GetMapping(value = "/createmember")
+	public String addMember(@RequestParam("wheressn") String SSN) {	
 		MemberSnapshot process = personBuilder.process(SSN);
 		snapshot.setSnapshot(process.toString());
 		snapshot.setMember_OID(process.getSubscriber().get(0).getOid());
@@ -88,8 +88,8 @@ public class PersonController {
 
 	}
 
-	@GetMapping(value="/changememberdata")
-	public String changeMemberData(@RequestParam("memberid") int memberid) {
+	@GetMapping(value="/updatemember")
+	public String changeMemberData(@RequestParam("whereid") int memberid) {
 		Person personData = operations.dataSynchronization(memberid);
 		System.out.println("retrived person data from enrollment DB based on given member oid: " + personData);
 		System.out.println("updating record in Transaction HIstory for DATASYNC event type");
