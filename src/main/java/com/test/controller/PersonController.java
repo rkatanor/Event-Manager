@@ -55,7 +55,7 @@ public class PersonController {
 	int EVENT_STATUS_CODE;
 	
 	@GetMapping(value = "/reseedmember")
-	public String syncPerson(@PathVariable("whereid") int memberoid) {
+	public String syncPerson(@RequestParam("whereid") int memberoid) {
 		Person personData = operations.dataSynchronization(memberoid);
 		System.out.println("retrived person data from enrollment DB based on given member oid: " + personData);
 		System.out.println("updating record in Transaction HIstory for DATASYNC event type");
