@@ -80,7 +80,7 @@ public class PersonController {
 		snapshot.setSnapshot(process.toString());
 		snapshot.setMember_OID(process.getSubscriber().get(0).getOid());
 		snapshot.setLast_change_dt("");
-		snapshot.setSnapshot_type("Transaction");
+		snapshot.setSnapshot_type("TRANSACTION");
 		snapservice.saveSnapshot(snapshot);
 		System.out.println(snapshot);
 

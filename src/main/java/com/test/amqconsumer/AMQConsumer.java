@@ -95,7 +95,7 @@ public class AMQConsumer {
 		MemberSnapshot membersnapshot = processor.process(personData);
 		snapshot.setSnapshot(membersnapshot.toString());
 		snapshot.setMember_OID(membersnapshot.getSubscriber().get(0).getOid());
-		snapshot.setSnapshot_type("Transaction");
+		snapshot.setSnapshot_type("TRANSACTION");
 		snapshot.setLast_change_dt("03-19-2019");
 
 		Snapshotservice.saveSnapshot(snapshot);
